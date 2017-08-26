@@ -1,4 +1,13 @@
 # Interview Practice
+## Sorting
+### What are the differences between Comparable and Comparator?
+* Comparable
+  * Sorting logic must be in same class as objects that are being sorted (natural order).
+  * Class to be sorted must implement interface.
+  * int compareTo(Object o1)
+* Comparator
+  * Sorting logic is in separate class.
+  * int compare(Object o1, Object o2)
 ## Application Architecture
 ### What are the differences between Web Services and JMS?
 * Web Service
