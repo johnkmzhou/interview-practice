@@ -1,4 +1,5 @@
 package com.example.number;
+
 /**
  * This is for practicing number manipulation.
  * 
@@ -26,5 +27,30 @@ public class NumberPractice {
 			number = (number - remainder) / 10;
 		}
 		return newValue;
+	}
+
+	/**
+	 * Finds the greatest common divisor between two numbers.
+	 * 
+	 * @link https://en.wikipedia.org/wiki/Euclidean_algorithm
+	 * @param a
+	 * @param b
+	 * @return
+	 */
+	public int greatestCommonDivisor(int a, int b) {
+		int rem;
+		if (a > b) {
+			rem = a % b;
+			if (rem != 0) {
+				return greatestCommonDivisor(a, rem);
+			}
+			return b;
+		} else {
+			rem = b % a;
+			if (rem != 0) {
+				return greatestCommonDivisor(b, rem);
+			}
+			return a;
+		}
 	}
 }
