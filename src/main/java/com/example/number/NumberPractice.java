@@ -38,19 +38,17 @@ public class NumberPractice {
 	 * @return
 	 */
 	public int greatestCommonDivisor(int a, int b) {
-		int rem;
-		if (a > b) {
-			rem = a % b;
-			if (rem != 0) {
-				return greatestCommonDivisor(a, rem);
-			}
+		if (a == 0) {
 			return b;
-		} else {
-			rem = b % a;
-			if (rem != 0) {
-				return greatestCommonDivisor(b, rem);
-			}
+		}
+		if (b == 0) {
 			return a;
 		}
+
+		if (a > b) {
+			return greatestCommonDivisor(b, a % b);
+		}
+		return greatestCommonDivisor(a, b % a);
+
 	}
 }
