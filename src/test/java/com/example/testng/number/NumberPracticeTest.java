@@ -6,26 +6,25 @@ import org.testng.annotations.Test;
 import com.example.number.NumberPractice;
 
 public class NumberPracticeTest {
-	NumberPractice num = new NumberPractice();
 
 	@Test
 	public void testReverseInt() {
-		int reverse = num.reverseInt(123456789);
+		int reverse = NumberPractice.reverseInt(123456789);
 		Assert.assertEquals(reverse, 987654321);
 	}
 
 	@Test(expectedExceptions = IllegalArgumentException.class)
 	public void testReverseIntWithException() {
-		num.reverseInt(1999999999);
+		NumberPractice.reverseInt(1999999999);
 	}
 
 	@Test
 	public void testGreatestCommonDivisor() {
-		int gcd = num.greatestCommonDivisor(16, 12);
+		int gcd = NumberPractice.greatestCommonDivisor(16, 12);
 		Assert.assertEquals(gcd, 4);
-		gcd = num.greatestCommonDivisor(12, 16);
+		gcd = NumberPractice.greatestCommonDivisor(12, 16);
 		Assert.assertEquals(gcd, 4);
-		gcd = num.greatestCommonDivisor(270, 192);
+		gcd = NumberPractice.greatestCommonDivisor(270, 192);
 		Assert.assertEquals(gcd, 6);
 	}
 }

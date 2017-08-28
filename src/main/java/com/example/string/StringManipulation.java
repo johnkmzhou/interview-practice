@@ -12,7 +12,7 @@ public class StringManipulation {
 	 * @param b
 	 * @return
 	 */
-	public boolean isAnagram(String a, String b) {
+	public static boolean isAnagram(String a, String b) {
 		Map<String, Integer> mapA = new HashMap<String, Integer>();
 		for (String s : a.toLowerCase().split("")) {
 			if (mapA.containsKey(s)) {

@@ -14,7 +14,7 @@ public class NumberPractice {
 	 * @param number
 	 * @return
 	 */
-	public int reverseInt(int number) {
+	public static int reverseInt(int number) {
 		int newValue = 0;
 		while (number != 0) {
 			int remainder = number % 10;
@@ -37,7 +37,7 @@ public class NumberPractice {
 	 * @param b
 	 * @return
 	 */
-	public int greatestCommonDivisor(int a, int b) {
+	public static int greatestCommonDivisor(int a, int b) {
 		if (a == 0) {
 			return b;
 		}

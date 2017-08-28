@@ -10,7 +10,7 @@ public class RegularExpressions {
 	 * @param s
 	 * @return
 	 */
-	public String filterDuplicateWords(String s) {
+	public static String filterDuplicateWords(String s) {
 		return Pattern.compile("\\b(\\w+)(\\s\\1)+\\b", Pattern.CASE_INSENSITIVE).matcher(s).replaceAll("$1");
 	}
 }
