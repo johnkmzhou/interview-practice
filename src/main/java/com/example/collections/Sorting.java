@@ -1,12 +1,14 @@
 package com.example.collections;
 
+import java.util.Random;
+
 public class Sorting {
-	
+
 	/**
 	 * selection sort
+	 * О(n^2)
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
+	 * @param array is an array of Comparable objects
 	 */
 	public static <T extends Comparable<T>> void selectionSort(T[] array) {
 		// loop from first element to 2nd element from the end
@@ -23,10 +25,8 @@ public class Sorting {
 	/**
 	 * find index of smallest item
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
-	 * @param start
-	 *            is the first element
+	 * @param array is an array of Comparable objects
+	 * @param start is the first element
 	 * @return the index of the smallest element
 	 */
 	private static <T extends Comparable<T>> int findSmallest(T[] array, int start) {
@@ -43,9 +43,9 @@ public class Sorting {
 
 	/**
 	 * bubble sort
+	 * О(n^2)
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
+	 * @param array is an array of Comparable objects
 	 */
 	public static <T extends Comparable<T>> void bubbleSort(T[] array) {
 		// flag to see if an item was swapped or not
@@ -73,9 +73,9 @@ public class Sorting {
 
 	/**
 	 * insertion sort
+	 * О(n^2)
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
+	 * @param array is an array of Comparable objects
 	 */
 	public static <T extends Comparable<T>> void insertionSort(T[] array) {
 		// loop from 2nd item to end of array
@@ -96,13 +96,11 @@ public class Sorting {
 
 	/**
 	 * merge sort
+	 * O(n * log(n))
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
-	 * @param start
-	 *            is the first element in the array
-	 * @param end
-	 *            is the last element in the array
+	 * @param array is an array of Comparable objects
+	 * @param start is the first element in the array
+	 * @param end   is the last element in the array
 	 */
 	public static <T extends Comparable<T>> void mergeSort(T[] array, int start, int end) {
 		// if start index is less than end index
@@ -119,14 +117,10 @@ public class Sorting {
 	/**
 	 * 
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
-	 * @param start
-	 *            is the first element in the array
-	 * @param half
-	 *            is the middle element in the array
-	 * @param end
-	 *            is the last element in the array
+	 * @param array is an array of Comparable objects
+	 * @param start is the first element in the array
+	 * @param half  is the middle element in the array
+	 * @param end   is the last element in the array
 	 */
 	private static <T extends Comparable<T>> void merge(T[] array, int start, int half, int end) {
 		// uncomment for more detailed output:
@@ -177,12 +171,9 @@ public class Sorting {
 	/**
 	 * quick sort
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
-	 * @param start
-	 *            is the first element in the array
-	 * @param end
-	 *            is the last element in the array
+	 * @param array is an array of Comparable objects
+	 * @param start is the first element in the array
+	 * @param end   is the last element in the array
 	 */
 	public static <T extends Comparable<T>> void quickSort(T[] array, int start, int end) {
 		if (start < end) {
@@ -197,12 +188,9 @@ public class Sorting {
 	/**
 	 * partitions the array into two parts: smaller or greater/equal part
 	 * 
-	 * @param array
-	 *            is an array of Comparable objects
-	 * @param start
-	 *            is the first element in the array
-	 * @param end
-	 *            is the last element in the array
+	 * @param array is an array of Comparable objects
+	 * @param start is the first element in the array
+	 * @param end   is the last element in the array
 	 * @return the index of the partition element
 	 */
 	private static <T extends Comparable<T>> int partition(T[] array, int start, int end) {
@@ -230,5 +218,33 @@ public class Sorting {
 		array[start] = array[split];
 		array[split] = temp;
 		return split;
+	}
+
+	/**
+	 * Another quicksort implementation.
+	 * O(n log n)
+	 * 
+	 */
+	public static void quickSort(int[] arr, int fromInclusive, int toInclusive) {
+		int i = fromInclusive;
+		int j = toInclusive;
+		if (i >= j)
+			return;
+		int pivot = arr[i + new Random().nextInt(j - i + 1)];
+		do {
+			while (arr[i] < pivot)
+				i++;
+			while (arr[j] > pivot)
+				j--;
+			if (i > j)
+				break;
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			i++;
+			j--;
+		} while (i <= j);
+		quickSort(arr, fromInclusive, j);
+		quickSort(arr, i, toInclusive);
 	}
 }
