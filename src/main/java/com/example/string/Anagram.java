@@ -3,7 +3,7 @@ package com.example.string;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StringManipulation {
+public class Anagram {
 
 	/**
 	 * Check if two strings contain the same characters in the same frequencies.

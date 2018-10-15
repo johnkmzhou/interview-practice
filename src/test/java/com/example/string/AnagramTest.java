@@ -3,16 +3,16 @@ package com.example.string;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class StringManipulationTest {
+public class AnagramTest {
   @Test
   public void testIsAnagram() {
-	  boolean result = StringManipulation.isAnagram("Cat", "Act");
+	  boolean result = Anagram.isAnagram("Cat", "Act");
 	  Assert.assertEquals(result, true);
   }
   
   @Test
   public void testIsNotAnagram() {
-	  boolean result = StringManipulation.isAnagram("Teest", "Test");
+	  boolean result = Anagram.isAnagram("Teest", "Test");
 	  Assert.assertEquals(result, false);
   }
 }
